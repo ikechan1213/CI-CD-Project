@@ -1,0 +1,27 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: コード取得
+      uses: actions/checkout@v3
+
+    - name: Pythonセットアップ
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.10"
+
+    - name: 依存関係インストール
+      run: pip install -r requirements.txt pytest
+
+    - name: テスト実行
+      run: pytest
+
+    - name: Dockerビルド
+      run: docker build -t myapp .
