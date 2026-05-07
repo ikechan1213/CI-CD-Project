@@ -64,7 +64,7 @@ Amazon EC2 上で以下を実施：
 ## 　サーバにログイン
 
 ```
-ssh -i "key.pem" ec2-user@<EC2のIP>
+ssh -i "key.pem" ec2-user@<EC2のパブリックIPv4アドレス>
 ```
 
 ## 必要ツールのインストール
