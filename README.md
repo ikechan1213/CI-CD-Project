@@ -50,7 +50,12 @@ Settings → Secrets and variables → Actions
 
 ・EC2_HOST：EC2のパブリックIP  
 ・EC2_USER：ec2-user  
-・EC2_KEY：.pemファイルの中身
+・EC2_KEY：.pemファイルの中身  
+
+※ EC2のセキュリティグループで以下を許可してください。
+
+・SSH（22番） → 自分のIP  
+・HTTP（80番） → Anywhere（0.0.0.0/0）
 
 ③ EC2の事前準備  
 
@@ -101,7 +106,15 @@ docker build -t myapp .
 docker run -d -p 80:8000 --name myapp myapp
 ```
 
-※ 初回のみ、EC2上でアプリケーションを起動する必要があります。
+※ 初回のみ、EC2上でアプリケーションを起動する必要があります。  
+※ 既に `myapp` コンテナが存在する場合：  
+
+```
+docker stop myapp
+docker rm myapp
+```
+
+実行後、再度 `docker run` を実行してください。  
 
 ---
 
@@ -114,15 +127,16 @@ git add .
 git commit -m "update"
 git push
 ```
+### 動作確認
 
-（自動）  
+ブラウザで以下へアクセスしてください：
 
-以下のコマンドでpushするだけで、自動的にデプロイされます：  
 ```
-git add .
-git commit -m "update"
-git push
+http://<EC2のパブリックIPv4アドレス>
 ```
+この例の通り実行した場合、  
+`{"message":"Hello World"}` が表示されれば成功です。
+
 
 ## 8.使用上の注意点⚠️  
 ・　.pemファイルは絶対に公開しないこと  
