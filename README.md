@@ -87,8 +87,35 @@ main.py を編集して、任意のAPIを作成してください。
 def read_root():
     return {"message": "Hello World"}
 ```
+⑤ デプロイ
+## 初回デプロイ（初回のみ実施）
+```
+sudo dnf install git -y
 
-⑤ デプロイ（自動）  
+git clone https://github.com/ユーザー名/リポジトリ名.git
+
+cd リポジトリ名
+
+docker build -t myapp .
+
+docker run -d -p 80:8000 --name myapp myapp
+```
+
+※ 初回のみ、EC2上でアプリケーションを起動する必要があります。
+
+---
+
+### 2回目以降のデプロイ
+
+コード修正後、以下を実行するだけで自動デプロイされます。
+
+```bash
+git add .
+git commit -m "update"
+git push
+```
+
+（自動）  
 
 以下のコマンドでpushするだけで、自動的にデプロイされます：  
 ```
