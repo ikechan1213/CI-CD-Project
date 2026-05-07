@@ -67,14 +67,13 @@ Amazon EC2 上で以下を実施：
 ssh -i "key.pem" ec2-user@<EC2のパブリックIPv4アドレス>
 ```
 
-## 必要ツールのインストール
+## 必要ツールのインストールと起動・起動自動化コマンド
 
 ```
 sudo dnf update -y
 sudo dnf install docker -y git -y
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo usermod -aG docker ec2-user
 ```
 ## 権限設定
 ```
