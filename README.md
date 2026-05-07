@@ -119,9 +119,11 @@ docker rm myapp
 
 ### 2回目以降のデプロイ
 
-コード修正後、以下を実行するだけで自動デプロイされます。
+コード修正後、以下を実行すると  
+pushされ、GitHub Actions により自動で  
+テスト・Dockerビルド・EC2デプロイが実行されます。  
 
-```bash
+```
 git add .
 git commit -m "update"
 git push
