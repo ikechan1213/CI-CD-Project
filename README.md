@@ -1,4 +1,4 @@
-﻿#  CI/CDパイプライン構築  (FastAPI × Docker × GitHub Actions)
+��﻿#  CI/CDパイプライン構築  (FastAPI × Docker × GitHub Actions)
  ## 概要
  このリポジトリは、FastAPIアプリケーションをDockerでコンテナ化し、  
  GitHub ActionsによるCI/CDパイプラインを構築するためのテンプレートです。  
@@ -16,7 +16,7 @@ GitHub Actionsを使用することで、push時に自動でテストとビル�
 開発をする上で、手動ビルドやテストに時間がかかることへの煩雑さからこのようなプロジェクトを作成しようと考えた。
 
  ## 4.技術スタック
- ・Backend：FastAPI(Python)  
+ ・Backend：FastAPI(Python 
  ・Container：Docker  
  ・CI/CD：GitHub Actions  
  ・その他：pytest
@@ -155,4 +155,4 @@ pushで処理が実行されるため、開発フローの効率化を実現さ�
 
 ## 11.最後に
 このテンプレートは「開発基盤の再利用」を目的としています。  
-プロジェクトごとに最小限の変更で、同じCI/CD環境を構築可能です。
+プロジェクトごとに最小限の変更で、同じCI/CD環境を構築可能です。
